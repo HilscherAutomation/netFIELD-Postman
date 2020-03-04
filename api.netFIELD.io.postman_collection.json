@@ -1,0 +1,5340 @@
+{
+	"info": {
+		"_postman_id": "62dbfaf2-cb3b-427f-bb2d-44c6e4707a77",
+		"name": "EdgePortal API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Generate authorization token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authheadertoken}}",
+								"description": "Authorization header token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"grantType\": \"password\",\r\n  \"refreshToken\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"stayLoggedIn\": false\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/auth",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"auth"
+							]
+						},
+						"description": "Generate authorization/refresh token."
+					},
+					"response": []
+				},
+				{
+					"name": "Generate refresh token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authheadertoken}}",
+								"description": "Authorization header token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"grantType\": \"refreshToken\",\r\n  \"refreshToken\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"stayLoggedIn\": false\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/auth",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"auth"
+							]
+						},
+						"description": "Generate authorization/refresh token."
+					},
+					"response": []
+				},
+				{
+					"name": "Revoke token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/auth/revoke",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"auth",
+								"revoke"
+							]
+						},
+						"description": "Revoke token."
+					},
+					"response": []
+				},
+				{
+					"name": "Verify token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/auth/verify",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"auth",
+								"verify"
+							]
+						},
+						"description": "Verify token."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Containers",
+			"item": [
+				{
+					"name": "Get Containers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/containers?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"containers"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}"
+								},
+								{
+									"key": "sortBy",
+									"value": "{{sortBy}}"
+								},
+								{
+									"key": "sortOrder",
+									"value": "{{sortOrder}}"
+								}
+							]
+						},
+						"description": "Get list of containers from the store"
+					},
+					"response": []
+				},
+				{
+					"name": "Create container",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Access token",
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "displayName",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "containerName",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "version",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "restartPolicy",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "type",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "desiredStatus",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "imageUri",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "processorArchitecture",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "settingsPageId",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "shortDescription",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "containerCreateOptions",
+									"value": "",
+									"description": "object",
+									"type": "text"
+								},
+								{
+									"key": "containerTwinDesiredOptions",
+									"value": "",
+									"description": "object",
+									"type": "text"
+								},
+								{
+									"key": "environmentVariables",
+									"value": "",
+									"description": "array",
+									"type": "text"
+								},
+								{
+									"key": "containerType",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "sharedOrganisationList",
+									"value": "",
+									"description": "array",
+									"type": "text"
+								},
+								{
+									"key": "organisationId",
+									"value": "",
+									"description": "number",
+									"type": "text"
+								},
+								{
+									"key": "registryType",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/containers",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"containers"
+							]
+						},
+						"description": "Create new container to the store"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Container",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/containers/{{containerId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"containers",
+								"{{containerId}}"
+							]
+						},
+						"description": "Delete container from the store"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Container by Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/containers/{{containerId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"containers",
+								"{{containerId}}"
+							]
+						},
+						"description": "Get a container from the store"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Container",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "displayName",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "containerName",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "icon",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "version",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "restartPolicy",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "desiredStatus",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "imageUri",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "processorArchitecture",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "settingsPageId",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "shortDescription",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "containerCreateOptions",
+									"value": "",
+									"description": "object",
+									"type": "text"
+								},
+								{
+									"key": "containerTwinDesiredOptions",
+									"value": "",
+									"description": "object",
+									"type": "text"
+								},
+								{
+									"key": "environmentVariables",
+									"value": "",
+									"description": "array",
+									"type": "text"
+								},
+								{
+									"key": "deployedAt",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/containers/{{containerId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"containers",
+								"{{containerId}}"
+							]
+						},
+						"description": "Update a container from the store"
+					},
+					"response": []
+				},
+				{
+					"name": "Share container",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"organisationIds\": []\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/containers/{{containerId}}/share",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"containers",
+								"{{containerId}}",
+								"share"
+							]
+						},
+						"description": "Share container with other organisaitons"
+					},
+					"response": []
+				},
+				{
+					"name": "Unshare container",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/containers/{{containerId}}/share/{{organisationId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"containers",
+								"{{containerId}}",
+								"share",
+								"{{organisationId}}"
+							]
+						},
+						"description": "Unshare container with organisation"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4acea1c0-83f1-4fb9-be59-b8a993425bf3",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f170a572-92bd-4a02-ad3b-85d5d2d46b82",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "deviceContainers",
+			"item": [
+				{
+					"name": "Get installed containers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"containers"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}"
+								},
+								{
+									"key": "sortBy",
+									"value": "{{sortBy}}"
+								},
+								{
+									"key": "sortOrder",
+									"value": "{{sortOrder}}"
+								}
+							]
+						},
+						"description": "Get a single specific installed container on a device"
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of deployable containers to device",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/deployable?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"containers",
+								"deployable"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}"
+								},
+								{
+									"key": "sortBy",
+									"value": "{{sortBy}}"
+								},
+								{
+									"key": "sortOrder",
+									"value": "{{sortOrder}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of installed containers to device",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/installed?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"containers",
+								"installed"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}"
+								},
+								{
+									"key": "sortBy",
+									"value": "{{sortBy}}"
+								},
+								{
+									"key": "sortOrder",
+									"value": "{{sortOrder}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get device containers routes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/routes",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"containers",
+								"routes"
+							]
+						},
+						"description": "Get the routes for the modules installed on the current device"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Device Container Route",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"\",\r\n  \"source\": \"\",\r\n  \"condition\": \"\",\r\n  \"target\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/routes",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"containers",
+								"routes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Device Container Route",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/routes/{{routeId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"containers",
+								"routes",
+								"{{routeId}}"
+							]
+						},
+						"description": "Delete device container route from a device"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Device Container Route",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"source\": \"string\",\r\n  \"condition\": \"string\",\r\n  \"target\": \"string\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/routes/{{routeId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"routes",
+								"{{routeId}}"
+							]
+						},
+						"description": "Updates values of a device route form device"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Installed Device Container",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/modules/{{containerId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"modules",
+								"{{containerId}}"
+							]
+						},
+						"description": "Delete Installed Device Container"
+					},
+					"response": []
+				},
+				{
+					"name": "Get installed container",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/{{containerId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"containers",
+								"{{containerId}}"
+							]
+						},
+						"description": "Get a single specific installed container on a device"
+					},
+					"response": []
+				},
+				{
+					"name": "Install Container to Device",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"restartPolicy\": \"\",\r\n  \"desiredStatus\": \"\",\r\n  \"moduleTwinDesiredOptions\": {},\r\n  \"environmentVariables\": [\r\n    {\r\n      \"key\": \"\",\r\n      \"value\": \"\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/{{containerId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"containers",
+								"{{containerId}}"
+							]
+						},
+						"description": "Installs (deploy) a container to device. Every module specified in the database has a set of properties. Some or all can be overridden via body attributes."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Device installed Container",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "displayName",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "containerName",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "version",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "restartPolicy",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "desiredStatus",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "imageUri",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "processorArchitecture",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "settingsPageId",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "shortDescription",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "containerCreateOptions",
+									"value": "",
+									"description": "object",
+									"type": "text"
+								},
+								{
+									"key": "containerTwinDesiredOptions",
+									"value": "",
+									"description": "object",
+									"type": "text"
+								},
+								{
+									"key": "environmentVariables",
+									"value": "",
+									"description": "array",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/{{containerId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"containers",
+								"{{containerId}}"
+							]
+						},
+						"description": "Update Device installed Container"
+					},
+					"response": []
+				},
+				{
+					"name": "Get device container properties",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/{{containerId}}/properties",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"containers",
+								"{{containerId}}",
+								"properties"
+							]
+						},
+						"description": "Get a single specific installed container on a device"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "deviceCustomFields",
+			"item": [
+				{
+					"name": "Get device all custom fields",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/custom-fields",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"custom-fields"
+							]
+						},
+						"description": "Get device custom fields."
+					},
+					"response": []
+				},
+				{
+					"name": "Create device custom field",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fieldId\": \"\",\r\n  \"fieldValue\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/custom-fields",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"custom-fields"
+							]
+						},
+						"description": "Create device custom field."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete device custom field",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/custom-fields/{{fieldId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"custom-fields",
+								"{{fieldId}}"
+							]
+						},
+						"description": "Delete device custom field."
+					},
+					"response": []
+				},
+				{
+					"name": "Get device custom field",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/custom-fields/{{fieldId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"custom-fields",
+								"{{fieldId}}"
+							]
+						},
+						"description": "Get device custom field."
+					},
+					"response": []
+				},
+				{
+					"name": "Update device custom field",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fieldValue\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/custom-fields/{{fieldId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"custom-fields",
+								"{{fieldId}}"
+							]
+						},
+						"description": "Update device custom field."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "deviceNotifications",
+			"item": [
+				{
+					"name": "Delete all device notifications",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access Token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/notification",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"notification"
+							]
+						},
+						"description": "Delete all the notificaitons for a given device"
+					},
+					"response": []
+				},
+				{
+					"name": "Get device notificaiton",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/notifications",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"notifications"
+							]
+						},
+						"description": "get a single device notifications"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Device Notification",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"serialNumber\": \"\",\r\n  \"level\": \"\",\r\n  \"message\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/notifications",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"notifications"
+							]
+						},
+						"description": "Create Device Notification"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete single notification",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access Token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/notification/{{notificationId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"notification",
+								"{{notificationId}}"
+							]
+						},
+						"description": "Delete specific device notification"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Devices",
+			"item": [
+				{
+					"name": "Get devices",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices?organisationId={{organisationId}}&page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices"
+							],
+							"query": [
+								{
+									"key": "organisationId",
+									"value": "{{organisationId}}"
+								},
+								{
+									"key": "page",
+									"value": "{{page}}",
+									"description": "Page number"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}",
+									"description": "Limit of shown items"
+								},
+								{
+									"key": "sortBy",
+									"value": "{{sortBy}}",
+									"description": "Sort by property"
+								},
+								{
+									"key": "sortOrder",
+									"value": "{{sortOrder}}",
+									"description": "Sort order (asc/desc)"
+								}
+							]
+						},
+						"description": "Get all devices by organisationId."
+					},
+					"response": []
+				},
+				{
+					"name": "Create device",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"string\",\n    \"organisationId\": 0,\n    \"serialNumber\": \"string\",\n    \"activationCode\": \"string\",\n    \"onBoarded\": true,\n    \"name\": \"string\",\n    \"firmwareVersion\": \"string\",\n    \"modelName\": \"string\",\n    \"status\": {\n        \"color\": \"string\",\n        \"description\": \"string\"\n    },\n    \"geolocation\": {\n        \"longitude\": \"string\",\n        \"latitude\": \"string\"\n    },\n    \"description\": \"string\",\n    \"tags\": \"string\",\n    \"properties\": [\n        {\n            \"name\": \"string\",\n            \"value\": \"string\"\n        }\n    ],\n    \"createdAt\": \"2020-02-26T14:13:17.185Z\",\n    \"updatedAt\": \"2020-02-26T14:13:17.185Z\"\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices"
+							]
+						},
+						"description": "Create device for organisation."
+					},
+					"response": []
+				},
+				{
+					"name": "Off-board device",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{keytoken}}",
+								"description": "Key token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"serialNumber\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/offboard",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"offboard"
+							]
+						},
+						"description": "Off-board device."
+					},
+					"response": []
+				},
+				{
+					"name": "On-board device",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{keytoken}}",
+								"description": "Key token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"activationCode\": \"\",\r\n  \"serialNumber\": \"\",\r\n  \"firmwareVersion\": \"\",\r\n  \"modelName\": \"\",\r\n  \"moduleJWT\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/onboard/sas",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"onboard",
+								"sas"
+							]
+						},
+						"description": "On-board device."
+					},
+					"response": []
+				},
+				{
+					"name": "Get device statuses",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/status?deviceIds=",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"status"
+							],
+							"query": [
+								{
+									"key": "deviceIds",
+									"value": "",
+									"description": "string"
+								}
+							]
+						},
+						"description": "Get device statuses."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete device",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}"
+							]
+						},
+						"description": "Delete device by deviceId."
+					},
+					"response": []
+				},
+				{
+					"name": "Get device",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}"
+							]
+						},
+						"description": "Get device by deviceId."
+					},
+					"response": []
+				},
+				{
+					"name": "Update device",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"organisationId\": 0,\r\n  \"serialNumber\": \"string\",\r\n  \"activationCode\": \"string\",\r\n  \"onBoarded\": true,\r\n  \"name\": \"string\",\r\n  \"firmwareVersion\": \"string\",\r\n  \"modelName\": \"string\",\r\n  \"status\": {\r\n    \"color\": \"string\",\r\n    \"description\": \"string\"\r\n  },\r\n  \"geolocation\": {\r\n    \"longitude\": \"string\",\r\n    \"latitude\": \"string\"\r\n  },\r\n  \"description\": \"string\",\r\n  \"tags\": \"string\",\r\n  \"properties\": [\r\n    {\r\n      \"name\": \"string\",\r\n      \"value\": \"string\"\r\n    }\r\n  ],\r\n  \"createdAt\": \"2020-02-26T14:13:17.185Z\",\r\n  \"updatedAt\": \"2020-02-26T14:13:17.185Z\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}"
+							]
+						},
+						"description": "Update device by deviceId."
+					},
+					"response": []
+				},
+				{
+					"name": "Call method on a device container",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Access token",
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"moduleName\": \"\",\r\n  \"methodName\": \"\",\r\n  \"methodPayload\": {}\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/methods",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"methods"
+							]
+						},
+						"description": "Call method on a device container"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "EdgeOS",
+			"item": [
+				{
+					"name": "Get edgeos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/edgeos/{{edgeosId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"edgeos",
+								"{{edgeosId}}"
+							]
+						},
+						"description": "Get EdgeOS"
+					},
+					"response": []
+				},
+				{
+					"name": "Create edgeos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "version",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "platform",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/edgeos",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"edgeos"
+							]
+						},
+						"description": "Upload EdgeOS"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete edgeos",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/edgeos/{{edgeosId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"edgeos",
+								"{{edgeosId}}"
+							]
+						},
+						"description": "Delete EdgeOS"
+					},
+					"response": []
+				},
+				{
+					"name": "Get edgeos list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/edgeos?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}&platform={{platform}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"edgeos"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{page}}",
+									"description": "number"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}",
+									"description": "number"
+								},
+								{
+									"key": "sortBy",
+									"value": "{{sortBy}}",
+									"description": "string"
+								},
+								{
+									"key": "sortOrder",
+									"value": "{{sortOrder}}",
+									"description": "string"
+								},
+								{
+									"key": "platform",
+									"value": "{{platform}}",
+									"description": "string"
+								}
+							]
+						},
+						"description": "Get EdgeOS list"
+					},
+					"response": []
+				},
+				{
+					"name": "Update edgeos",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "version",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "platform",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "",
+									"description": "string",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/edgeos/{{edgeosId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"edgeos",
+								"{{edgeosId}}"
+							]
+						},
+						"description": "Update EdgeOS"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Groups",
+			"item": [
+				{
+					"name": "Delete group",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/groups/{{groupId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"groups",
+								"{{groupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get group by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/groups/{{groupId}}?depth={{depth}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"groups",
+								"{{groupId}}"
+							],
+							"query": [
+								{
+									"key": "depth",
+									"value": "{{depth}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"\",\r\n  \"groupType\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/groups/{{groupId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"groups",
+								"{{groupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update group",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"\",\r\n  \"groupType\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/groups/{{groupId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"groups",
+								"{{groupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a dvice from a group",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/groups/{{groupId}}/devices/{{deviceId}}?",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"groups",
+								"{{groupId}}",
+								"devices",
+								"{{deviceId}}"
+							],
+							"query": [
+								{
+									"key": "Authorization",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Deletes a group item, which is a reference from a certain group to a given device."
+					},
+					"response": []
+				},
+				{
+					"name": "Add a device to a group",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"name": "Content-Type",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/groups/{{groupId}}/devices/{{deviceId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"groups",
+								"{{groupId}}",
+								"devices",
+								"{{deviceId}}"
+							]
+						},
+						"description": "Creates a Group Item which hold a reference from a give Device to a given Group"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Keys",
+			"item": [
+				{
+					"name": "Get Keys",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/keys?organisationId={{organisationId}}&page={{page}}&limit={{limit}}&sortBy={{sortBy}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"keys"
+							],
+							"query": [
+								{
+									"key": "organisationId",
+									"value": "{{organisationId}}",
+									"description": "number"
+								},
+								{
+									"key": "page",
+									"value": "{{page}}",
+									"description": "number"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}",
+									"description": "number"
+								},
+								{
+									"key": "sortBy",
+									"value": "{{sortBy}}",
+									"description": "string"
+								}
+							]
+						},
+						"description": "Get all keys for End-point usage with key authentication strategy and specific scope of usage according organisation."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Key",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"organisationId\": 1,\r\n  \"name\": \"\",\r\n  \"type\": \"\",\r\n  \"resources\": [\r\n    {\r\n      \"resource\": \"\",\r\n      \"permissions\": [\r\n        \"\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/keys",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"keys"
+							]
+						},
+						"description": "Create a key for End-point usage with key authentication strategy and specific scope of usage."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Keys Permissions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/keys/permissions?organisationId={{organisationId}}&page={{page}}&limit={{limit}}&sortBy={{sortBy}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"keys",
+								"permissions"
+							],
+							"query": [
+								{
+									"key": "organisationId",
+									"value": "{{organisationId}}",
+									"description": "number"
+								},
+								{
+									"key": "page",
+									"value": "{{page}}",
+									"description": "number"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}",
+									"description": "number"
+								},
+								{
+									"key": "sortBy",
+									"value": "{{sortBy}}",
+									"description": "string"
+								}
+							]
+						},
+						"description": "Get all keys for End-point usage with key authentication strategy and specific scope of usage according organisation."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Key by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/keys/{{keyId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"keys",
+								"{{keyId}}"
+							]
+						},
+						"description": "Delete a key for End-point usage with key authentication strategy and specific scope of usage."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Keys by Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/keys/{{keyId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"keys",
+								"{{keyId}}"
+							]
+						},
+						"description": "Get a key for End-point usage with key authentication strategy and specific scope of usage."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Key by Id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"\",\r\n  \"type\": \"\",\r\n  \"scope\": [\r\n    {\r\n      \"resource\": \"\",\r\n      \"permissions\": [\r\n        \"\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/keys/{{keyId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"keys",
+								"{{keyId}}"
+							]
+						},
+						"description": "Update a key for End-point usage with key authentication strategy and specific scope of usage."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Notifications",
+			"item": [
+				{
+					"name": "Notification",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"id\": \"string\",\r\n    \"topic\": \"string\",\r\n    \"subject\": \"string\",\r\n    \"data\": {},\r\n    \"eventType\": \"string\",\r\n    \"eventTime\": \"string\",\r\n    \"metadataVersion\": \"string\",\r\n    \"dataVersion\": \"string\"\r\n  }\r\n]"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/notifications",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"notifications"
+							]
+						},
+						"description": "Create a key for End-point usage with key authentication strategy and specific scope of usage."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "organisationManifests",
+			"item": [
+				{
+					"name": "Get Manifest Containers by Org",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/containers",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"organisations",
+								"{{organisationId}}",
+								"deploymentManifest",
+								"containers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Container",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/containers/{{containerId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"organisations",
+								"{{organisationId}}",
+								"deploymentManifest",
+								"containers",
+								"{{containerId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get deployment manifest container",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/containers/{{containerId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"organisations",
+								"{{organisationId}}",
+								"deploymentManifest",
+								"containers",
+								"{{containerId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Container",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"restartPolicy\": \"\",\r\n  \"desiredStatus\": \"\",\r\n  \"containerCreateOptions\": {\r\n    \"Hostname\": \"\",\r\n    \"Domainname\": \"\",\r\n    \"User\": \"\",\r\n    \"AttachStdin\": true,\r\n    \"AttachStdout\": true,\r\n    \"AttachStderr\": true,\r\n    \"ExposedPorts\": {},\r\n    \"Tty\": true,\r\n    \"OpenStdin\": true,\r\n    \"StdinOnce\": true,\r\n    \"Env\": \"\",\r\n    \"Cmd\": \"\",\r\n    \"Healthcheck\": {\r\n      \"Test\": [\r\n        \"\"\r\n      ],\r\n      \"Interval\": 0,\r\n      \"Timeout\": 0,\r\n      \"Retries\": 0,\r\n      \"StartPeriod\": 0\r\n    },\r\n    \"ArgsEscaped\": true,\r\n    \"Image\": \"\",\r\n    \"Volumes\": {},\r\n    \"WorkingDir\": \"\",\r\n    \"Entrypoint\": [\r\n      \"\"\r\n    ],\r\n    \"NetworkDisabled\": true,\r\n    \"MacAddress\": \"\",\r\n    \"OnBuild\": [\r\n      \"\"\r\n    ],\r\n    \"Labels\": {},\r\n    \"StopSignal\": \"\",\r\n    \"StopTimeout\": 0,\r\n    \"Shell\": [\r\n      \"\"\r\n    ],\r\n    \"HostConfig\": {\r\n      \"MaximumIOps\": 0,\r\n      \"MaximumIOBps\": 0,\r\n      \"CpuShares\": 0,\r\n      \"Memory\": 0,\r\n      \"CgroupParent\": \"\",\r\n      \"BlkioWeight\": 0,\r\n      \"BlkioWeightDevice\": [\r\n        {\r\n          \"Path\": \"\",\r\n          \"Weight\": 0\r\n        }\r\n      ],\r\n      \"BlkioDeviceReadBps\": [\r\n        {\r\n          \"Path\": \"\",\r\n          \"Rate\": 0\r\n        }\r\n      ],\r\n      \"BlkioDeviceWriteBps\": [\r\n        {\r\n          \"Path\": \"\",\r\n          \"Rate\": 0\r\n        }\r\n      ],\r\n      \"BlkioDeviceReadIOps\": [\r\n        {\r\n          \"Path\": \"\",\r\n          \"Rate\": 0\r\n        }\r\n      ],\r\n      \"BlkioDeviceWriteIOps\": [\r\n        {\r\n          \"Path\": \"\",\r\n          \"Rate\": 0\r\n        }\r\n      ],\r\n      \"CpuPeriod\": 0,\r\n      \"CpuQuota\": 0,\r\n      \"CpuRealtimePeriod\": 0,\r\n      \"CpuRealtimeRuntime\": 0,\r\n      \"CpusetCpus\": \"\",\r\n      \"CpusetMems\": \"\",\r\n      \"Devices\": [\r\n        {\r\n          \"PathOnHost\": \"\",\r\n          \"PathInContainer\": \"\",\r\n          \"CgroupPermissions\": \"\"\r\n        }\r\n      ],\r\n      \"DeviceCgroupRules\": [\r\n        \"\"\r\n      ],\r\n      \"DiskQuota\": 0,\r\n      \"KernelMemory\": 0,\r\n      \"MemoryReservation\": 0,\r\n      \"MemorySwap\": 0,\r\n      \"MemorySwappiness\": 0,\r\n      \"NanoCPUs\": 0,\r\n      \"OomKillDisable\": true,\r\n      \"PidsLimit\": 0,\r\n      \"Ulimits\": [\r\n        {\r\n          \"Name\": \"\",\r\n          \"Soft\": 0,\r\n          \"Hard\": 0\r\n        }\r\n      ],\r\n      \"CpuCount\": 0,\r\n      \"CpuPercent\": 0,\r\n      \"IOMaximumIOps\": 0,\r\n      \"IOMaximumBandwidth\": 0,\r\n      \"Binds\": [\r\n        \"\"\r\n      ],\r\n      \"ContainerIDFile\": \"\",\r\n      \"LogConfig\": {\r\n        \"Type\": \"json-file\",\r\n        \"Config\": {}\r\n      },\r\n      \"NetworkMode\": \"bridge\",\r\n      \"PortBindings\": {},\r\n      \"RestartPolicy\": {\r\n        \"Name\": \"always\",\r\n        \"MaximumRetryCount\": 0\r\n      },\r\n      \"AutoRemove\": true,\r\n      \"VolumeDriver\": \"\",\r\n      \"VolumesFrom\": [\r\n        \"\"\r\n      ],\r\n      \"Mounts\": [\r\n        {\r\n          \"Target\": \"\",\r\n          \"Source\": \"\",\r\n          \"Type\": \"bind\",\r\n          \"ReadOnly\": true,\r\n          \"Consistency\": \"\",\r\n          \"BindOptions\": {\r\n            \"Propagation\": \"\"\r\n          },\r\n          \"VolumeOptions\": {\r\n            \"NoCopy\": true,\r\n            \"Labels\": {},\r\n            \"DriverConfig\": {\r\n              \"Name\": \"\",\r\n              \"Options\": {}\r\n            }\r\n          },\r\n          \"TmpfsOptions\": {\r\n            \"SizeBytes\": 0,\r\n            \"Mode\": 0\r\n          }\r\n        }\r\n      ],\r\n      \"CapAdd\": [\r\n        \"\"\r\n      ],\r\n      \"CapDrop\": [\r\n        \"\"\r\n      ],\r\n      \"Dns\": [\r\n        \"\"\r\n      ],\r\n      \"DnsOptions\": [\r\n        \"\"\r\n      ],\r\n      \"DnsSearch\": [\r\n        \"\"\r\n      ],\r\n      \"ExtraHosts\": [\r\n        \"\"\r\n      ],\r\n      \"GroupAdd\": [\r\n        \"\"\r\n      ],\r\n      \"IpcMode\": \"\",\r\n      \"Cgroup\": \"\",\r\n      \"Links\": [\r\n        \"\"\r\n      ],\r\n      \"OomScoreAdj\": 0,\r\n      \"PidMode\": \"\",\r\n      \"Privileged\": true,\r\n      \"PublishAllPorts\": true,\r\n      \"ReadonlyRootfs\": true,\r\n      \"SecurityOpt\": [\r\n        \"\"\r\n      ],\r\n      \"StorageOpt\": {},\r\n      \"Tmpfs\": {},\r\n      \"UTSMode\": \"\",\r\n      \"UsernsMode\": \"\",\r\n      \"ShmSize\": 0,\r\n      \"Sysctls\": {},\r\n      \"Runtime\": \"\",\r\n      \"ConsoleSize\": [\r\n        0\r\n      ],\r\n      \"Isolation\": \"\"\r\n    },\r\n    \"NetworkingConfig\": {\r\n      \"EndpointsConfig\": {}\r\n    }\r\n  },\r\n  \"containerTwinDesiredOptions\": {},\r\n  \"environmentVariables\": [\r\n    {\r\n      \"key\": \"\",\r\n      \"value\": \"\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/containers/{{containerId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"organisations",
+								"{{organisationId}}",
+								"deploymentManifest",
+								"containers",
+								"{{containerId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Container",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"restartPolicy\": \"\",\r\n  \"desiredStatus\": \"\",\r\n  \"containerCreateOptions\": {\r\n    \"Hostname\": \"\",\r\n    \"Domainname\": \"\",\r\n    \"User\": \"\",\r\n    \"AttachStdin\": true,\r\n    \"AttachStdout\": true,\r\n    \"AttachStderr\": true,\r\n    \"ExposedPorts\": {},\r\n    \"Tty\": true,\r\n    \"OpenStdin\": true,\r\n    \"StdinOnce\": true,\r\n    \"Env\": \"\",\r\n    \"Cmd\": \"\",\r\n    \"Healthcheck\": {\r\n      \"Test\": [\r\n        \"\"\r\n      ],\r\n      \"Interval\": 0,\r\n      \"Timeout\": 0,\r\n      \"Retries\": 0,\r\n      \"StartPeriod\": 0\r\n    },\r\n    \"ArgsEscaped\": true,\r\n    \"Image\": \"\",\r\n    \"Volumes\": {},\r\n    \"WorkingDir\": \"\",\r\n    \"Entrypoint\": [\r\n      \"\"\r\n    ],\r\n    \"NetworkDisabled\": true,\r\n    \"MacAddress\": \"\",\r\n    \"OnBuild\": [\r\n      \"\"\r\n    ],\r\n    \"Labels\": {},\r\n    \"StopSignal\": \"\",\r\n    \"StopTimeout\": 0,\r\n    \"Shell\": [\r\n      \"\"\r\n    ],\r\n    \"HostConfig\": {\r\n      \"MaximumIOps\": 0,\r\n      \"MaximumIOBps\": 0,\r\n      \"CpuShares\": 0,\r\n      \"Memory\": 0,\r\n      \"CgroupParent\": \"\",\r\n      \"BlkioWeight\": 0,\r\n      \"BlkioWeightDevice\": [\r\n        {\r\n          \"Path\": \"\",\r\n          \"Weight\": 0\r\n        }\r\n      ],\r\n      \"BlkioDeviceReadBps\": [\r\n        {\r\n          \"Path\": \"\",\r\n          \"Rate\": 0\r\n        }\r\n      ],\r\n      \"BlkioDeviceWriteBps\": [\r\n        {\r\n          \"Path\": \"\",\r\n          \"Rate\": 0\r\n        }\r\n      ],\r\n      \"BlkioDeviceReadIOps\": [\r\n        {\r\n          \"Path\": \"\",\r\n          \"Rate\": 0\r\n        }\r\n      ],\r\n      \"BlkioDeviceWriteIOps\": [\r\n        {\r\n          \"Path\": \"\",\r\n          \"Rate\": 0\r\n        }\r\n      ],\r\n      \"CpuPeriod\": 0,\r\n      \"CpuQuota\": 0,\r\n      \"CpuRealtimePeriod\": 0,\r\n      \"CpuRealtimeRuntime\": 0,\r\n      \"CpusetCpus\": \"\",\r\n      \"CpusetMems\": \"\",\r\n      \"Devices\": [\r\n        {\r\n          \"PathOnHost\": \"\",\r\n          \"PathInContainer\": \"\",\r\n          \"CgroupPermissions\": \"\"\r\n        }\r\n      ],\r\n      \"DeviceCgroupRules\": [\r\n        \"\"\r\n      ],\r\n      \"DiskQuota\": 0,\r\n      \"KernelMemory\": 0,\r\n      \"MemoryReservation\": 0,\r\n      \"MemorySwap\": 0,\r\n      \"MemorySwappiness\": 0,\r\n      \"NanoCPUs\": 0,\r\n      \"OomKillDisable\": true,\r\n      \"PidsLimit\": 0,\r\n      \"Ulimits\": [\r\n        {\r\n          \"Name\": \"\",\r\n          \"Soft\": 0,\r\n          \"Hard\": 0\r\n        }\r\n      ],\r\n      \"CpuCount\": 0,\r\n      \"CpuPercent\": 0,\r\n      \"IOMaximumIOps\": 0,\r\n      \"IOMaximumBandwidth\": 0,\r\n      \"Binds\": [\r\n        \"\"\r\n      ],\r\n      \"ContainerIDFile\": \"\",\r\n      \"LogConfig\": {\r\n        \"Type\": \"json-file\",\r\n        \"Config\": {}\r\n      },\r\n      \"NetworkMode\": \"bridge\",\r\n      \"PortBindings\": {},\r\n      \"RestartPolicy\": {\r\n        \"Name\": \"always\",\r\n        \"MaximumRetryCount\": 0\r\n      },\r\n      \"AutoRemove\": true,\r\n      \"VolumeDriver\": \"\",\r\n      \"VolumesFrom\": [\r\n        \"\"\r\n      ],\r\n      \"Mounts\": [\r\n        {\r\n          \"Target\": \"\",\r\n          \"Source\": \"\",\r\n          \"Type\": \"bind\",\r\n          \"ReadOnly\": true,\r\n          \"Consistency\": \"\",\r\n          \"BindOptions\": {\r\n            \"Propagation\": \"\"\r\n          },\r\n          \"VolumeOptions\": {\r\n            \"NoCopy\": true,\r\n            \"Labels\": {},\r\n            \"DriverConfig\": {\r\n              \"Name\": \"\",\r\n              \"Options\": {}\r\n            }\r\n          },\r\n          \"TmpfsOptions\": {\r\n            \"SizeBytes\": 0,\r\n            \"Mode\": 0\r\n          }\r\n        }\r\n      ],\r\n      \"CapAdd\": [\r\n        \"\"\r\n      ],\r\n      \"CapDrop\": [\r\n        \"\"\r\n      ],\r\n      \"Dns\": [\r\n        \"\"\r\n      ],\r\n      \"DnsOptions\": [\r\n        \"\"\r\n      ],\r\n      \"DnsSearch\": [\r\n        \"\"\r\n      ],\r\n      \"ExtraHosts\": [\r\n        \"\"\r\n      ],\r\n      \"GroupAdd\": [\r\n        \"\"\r\n      ],\r\n      \"IpcMode\": \"\",\r\n      \"Cgroup\": \"\",\r\n      \"Links\": [\r\n        \"\"\r\n      ],\r\n      \"OomScoreAdj\": 0,\r\n      \"PidMode\": \"\",\r\n      \"Privileged\": true,\r\n      \"PublishAllPorts\": true,\r\n      \"ReadonlyRootfs\": true,\r\n      \"SecurityOpt\": [\r\n        \"\"\r\n      ],\r\n      \"StorageOpt\": {},\r\n      \"Tmpfs\": {},\r\n      \"UTSMode\": \"\",\r\n      \"UsernsMode\": \"\",\r\n      \"ShmSize\": 0,\r\n      \"Sysctls\": {},\r\n      \"Runtime\": \"\",\r\n      \"ConsoleSize\": [\r\n        0\r\n      ],\r\n      \"Isolation\": \"\"\r\n    },\r\n    \"NetworkingConfig\": {\r\n      \"EndpointsConfig\": {}\r\n    }\r\n  },\r\n  \"containerTwinDesiredOptions\": {},\r\n  \"environmentVariables\": [\r\n    {\r\n      \"key\": \"\",\r\n      \"value\": \"\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/containers/{{containerId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"organisations",
+								"{{organisationId}}",
+								"deploymentManifest",
+								"containers",
+								"{{containerId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Manifest Routes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/routes",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"organisations",
+								"{{organisationId}}",
+								"deploymentManifest",
+								"routes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Route",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"\",\r\n  \"source\": \"\",\r\n  \"condition\": \"\",\r\n  \"target\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/routes",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"organisations",
+								"{{organisationId}}",
+								"deploymentManifest",
+								"routes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Route",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/routes/{{routeId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"organisations",
+								"{{organisationId}}",
+								"deploymentManifest",
+								"routes",
+								"{{routeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get deployment manifest route",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/routes/{{routeId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"organisations",
+								"{{organisationId}}",
+								"deploymentManifest",
+								"routes",
+								"{{routeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Route",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"\",\n    \"source\": \"\",\n    \"target\": \"\",\n    \"condition\": \"\"\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/routes/{{routeId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"organisations",
+								"{{organisationId}}",
+								"deploymentManifest",
+								"routes",
+								"{{routeId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Organisation Deployment Manifest",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Organisations",
+			"item": [
+				{
+					"name": "Get organisations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							},
+							{
+								"key": "depth",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/organisations",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"organisations"
+							]
+						},
+						"description": "Get all organisations according user permissions"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete organisation by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"organisations",
+								"{{organisationId}}"
+							]
+						},
+						"description": "Delete organisation."
+					},
+					"response": []
+				},
+				{
+					"name": "Get organisation by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							},
+							{
+								"key": "depth",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"organisations",
+								"{{organisationId}}"
+							]
+						},
+						"description": "Get organisation and it's children by organisationId."
+					},
+					"response": []
+				},
+				{
+					"name": "Create organisation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"parentId\": 0,\r\n  \"name\": \"string\",\r\n  \"admin\": {\r\n    \"id\": 0,\r\n    \"fullName\": \"string\",\r\n    \"email\": \"string\"\r\n  },\r\n  \"phoneNumber\": \"string\",\r\n  \"street\": \"string\",\r\n  \"houseNumber\": \"string\",\r\n  \"addressSupplement\": \"string\",\r\n  \"zipCode\": \"string\",\r\n  \"city\": \"string\",\r\n  \"country\": \"string\",\r\n  \"notes\": \"string\",\r\n  \"childrenInheritManifest\": true,\r\n  \"defaultDeviceGroupId\": 0,\r\n  \"createdAt\": \"2020-02-26T14:13:18.133Z\",\r\n  \"updatedAt\": \"2020-02-26T14:13:18.133Z\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"organisations",
+								"{{organisationId}}"
+							]
+						},
+						"description": "Create an organisation."
+					},
+					"response": []
+				},
+				{
+					"name": "Update organisation",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"parentId\": 0,\r\n  \"name\": \"string\",\r\n  \"admin\": {\r\n    \"id\": 0,\r\n    \"fullName\": \"string\",\r\n    \"email\": \"string\"\r\n  },\r\n  \"phoneNumber\": \"string\",\r\n  \"street\": \"string\",\r\n  \"houseNumber\": \"string\",\r\n  \"addressSupplement\": \"string\",\r\n  \"zipCode\": \"string\",\r\n  \"city\": \"string\",\r\n  \"country\": \"string\",\r\n  \"notes\": \"string\",\r\n  \"childrenInheritManifest\": true,\r\n  \"defaultDeviceGroupId\": 0,\r\n  \"createdAt\": \"2020-02-26T14:13:18.133Z\",\r\n  \"updatedAt\": \"2020-02-26T14:13:18.133Z\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"organisations",
+								"{{organisationId}}"
+							]
+						},
+						"description": "Modify an organisations data"
+					},
+					"response": []
+				}
+			],
+			"description": "Organisations resources",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Permissions",
+			"item": [
+				{
+					"name": "Get Resource Permissions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/permissions?resource={{permissionResource}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"permissions"
+							],
+							"query": [
+								{
+									"key": "resource",
+									"value": "{{permissionResource}}",
+									"description": "string"
+								}
+							]
+						},
+						"description": "Get permissions and security levels per resource"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Permissions for Containers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"containerPermissions\": [\r\n    {\r\n      \"containerId\": \"string\",\r\n      \"permissions\": [\r\n        \"containers.createContainers\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/permissions/containers",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"permissions",
+								"containers"
+							]
+						},
+						"description": "Get permissions against list of containersIds."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Permissions for Devices",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"devicePermissions\": [\r\n    {\r\n      \"deviceId\": \"string\",\r\n      \"permissions\": [\r\n        \"devices.createDevices\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/permissions/devices",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"permissions",
+								"devices"
+							]
+						},
+						"description": "Get permissions against list of deviceIds"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Permissions for EdgeOS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"edgeosPermissions\": [\r\n    {\r\n      \"edgeosId\": \"string\",\r\n      \"permissions\": [\r\n        \"edgeos.createEdgeos\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/permissions/edgeos",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"permissions",
+								"edgeos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Permissions for Groups",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"groupPermissions\": [\r\n    {\r\n      \"groupId\": 0,\r\n      \"permissions\": [\r\n        \"groups.createGroup\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/permissions/firmware",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"permissions",
+								"firmware"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Permissions for Keys",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"keyPermissions\": [\r\n    {\r\n      \"keyId\": \"string\",\r\n      \"permissions\": [\r\n        \"keys.createKey\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/permissions/keys",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"permissions",
+								"keys"
+							]
+						},
+						"description": "Get permissions against list of keys."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Permissions for Organisations",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"organisationPermissions\": [\r\n    {\r\n      \"organisationId\": 0,\r\n      \"permissions\": [\r\n        \"usersAndOrganisations.createOrganisations\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/permissions/organisations",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"permissions",
+								"organisations"
+							]
+						},
+						"description": "Get permissions against list of organisation ids."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Permissions for Roles",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rolePermissions\": [\r\n    {\r\n      \"organisationId\": 0,\r\n      \"roleName\": \"string\",\r\n      \"permissions\": [\r\n        \"roles.createRoles\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/permissions/roles",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"permissions",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Permissions for Tenants",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tenantPermissions\": [\r\n    {\r\n      \"tenantId\": 0,\r\n      \"permissions\": [\r\n        \"string\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/permissions/tenants",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"permissions",
+								"tenants"
+							]
+						},
+						"description": "Get permissions against list of organisation ids."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Permissions for Users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userPermissions\": [\r\n    {\r\n      \"userId\": 0,\r\n      \"permissions\": [\r\n        \"usersAndOrganisations.createUsers\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/permissions/users",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"permissions",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Permissions for Webhooks",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"webhookPermissions\": [\r\n    {\r\n      \"webhookId\": \"string\",\r\n      \"permissions\": [\r\n        \"string\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/permissions/webhooks",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"permissions",
+								"webhooks"
+							]
+						},
+						"description": "Get all permissions against firmware id"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "remoteDevices",
+			"item": [
+				{
+					"name": "Get remote device status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/remote",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"remote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create remote device",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"\",\r\n  \"geolocation\": \"\",\r\n  \"description\": \"\",\r\n  \"tags\": \"\",\r\n  \"properties\": [\r\n    {\r\n      \"name\": \"\",\r\n      \"value\": \"\"\r\n    }\r\n  ],\r\n  \"status\": \"enabled\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/remote",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"remote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get remote device credentials",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/remote/credentials",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"devices",
+								"{{deviceId}}",
+								"remote",
+								"credentials"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "Get roles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Access token",
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{accesstoken}}"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/roles?organisationId={{organisationId}}&page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"roles"
+							],
+							"query": [
+								{
+									"key": "organisationId",
+									"value": "{{organisationId}}",
+									"description": "min(1), null or empty not allowed"
+								},
+								{
+									"key": "page",
+									"value": "{{page}}",
+									"description": "Page number"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}",
+									"description": "Limit of shown items"
+								},
+								{
+									"key": "sortBy",
+									"value": "{{sortBy}}",
+									"description": "Sort by property"
+								},
+								{
+									"key": "sortOrder",
+									"value": "{{sortOrder}}",
+									"description": "Sort order (asc/desc)"
+								}
+							]
+						},
+						"description": "Get all roles for a given organisation by organisationId."
+					},
+					"response": []
+				},
+				{
+					"name": "Create role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"role\": \"string\",\r\n  \"editable\": true,\r\n  \"deletable\": true,\r\n  \"organisationId\": 0,\r\n  \"resources\": [\r\n    {\r\n      \"resource\": \"roles\",\r\n      \"permissions\": [\r\n        \"permission.securityLevel\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/roles?organisationId={{organisationId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"roles"
+							],
+							"query": [
+								{
+									"key": "organisationId",
+									"value": "{{organisationId}}"
+								}
+							]
+						},
+						"description": "Create role for organisation."
+					},
+					"response": []
+				},
+				{
+					"name": "Update role",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"role\": \"string\",\r\n  \"editable\": true,\r\n  \"deletable\": true,\r\n  \"organisationId\": 0,\r\n  \"resources\": [\r\n    {\r\n      \"resource\": \"roles\",\r\n      \"permissions\": [\r\n        \"permission.securityLevel\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/roles?organisationId={{organisationId}}&role=",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"roles"
+							],
+							"query": [
+								{
+									"key": "organisationId",
+									"value": "{{organisationId}}"
+								},
+								{
+									"key": "role",
+									"value": "",
+									"description": "string"
+								}
+							]
+						},
+						"description": "Update role in organisation."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete role",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/roles/{{roleName}}?organisationId={{organisationId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"roles",
+								"{{roleName}}"
+							],
+							"query": [
+								{
+									"key": "organisationId",
+									"value": "{{organisationId}}"
+								}
+							]
+						},
+						"description": "Delete role from organisation."
+					},
+					"response": []
+				},
+				{
+					"name": "Get single role",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/roles/{{roleName}}?organisationId={{organisationId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"roles",
+								"{{roleName}}"
+							],
+							"query": [
+								{
+									"key": "organisationId",
+									"value": "{{organisationId}}",
+									"description": "min(1), null or empty not allowed"
+								}
+							]
+						},
+						"description": "Get single role by organisationId and roleName."
+					},
+					"response": []
+				}
+			],
+			"description": "Roles",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "Seach Containers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/search/containers?searchText=Hilscher&filter={{filter}}&searchType={{searchType}}&page={{page}}&limit={{limit}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"search",
+								"containers"
+							],
+							"query": [
+								{
+									"key": "searchText",
+									"value": "Hilscher"
+								},
+								{
+									"key": "filter",
+									"value": "{{filter}}",
+									"description": "\"name=value\" (can have more than one filter) (doesn't affect the request if you have searchText parameter)"
+								},
+								{
+									"key": "searchType",
+									"value": "{{searchType}}"
+								},
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}"
+								}
+							]
+						},
+						"description": "Make a request to search in the Containers collection."
+					},
+					"response": []
+				},
+				{
+					"name": "Search Devices",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/search/devices?searchText={{searchText}}&filter={{filter}}&searchType={{searchType}}&page={{page}}&limit={{limit}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"search",
+								"devices"
+							],
+							"query": [
+								{
+									"key": "searchText",
+									"value": "{{searchText}}"
+								},
+								{
+									"key": "filter",
+									"value": "{{filter}}",
+									"description": "\"name=value\" (can have more than one filter) (doesn't affect the request if you have searchText parameter)"
+								},
+								{
+									"key": "searchType",
+									"value": "{{searchType}}"
+								},
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}"
+								}
+							]
+						},
+						"description": "Make a request to search in the Devices collection."
+					},
+					"response": []
+				},
+				{
+					"name": "Search Organisations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/search/organisations?searchText={{searchText}}&filter={{filter}}&searchType={{searchType}}&page={{page}}&limit={{limit}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"search",
+								"organisations"
+							],
+							"query": [
+								{
+									"key": "searchText",
+									"value": "{{searchText}}"
+								},
+								{
+									"key": "filter",
+									"value": "{{filter}}",
+									"description": "\"name=value\" (can have more than one filter) (doesn't affect the request if you have searchText parameter)"
+								},
+								{
+									"key": "searchType",
+									"value": "{{searchType}}"
+								},
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}"
+								}
+							]
+						},
+						"description": "Make a request to search Organisations."
+					},
+					"response": []
+				},
+				{
+					"name": "Search Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/search/users?searchText={{searchText}}&filter={{filter}}&searchType={{searchType}}&page={{page}}&limit={{limit}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"search",
+								"users"
+							],
+							"query": [
+								{
+									"key": "searchText",
+									"value": "{{searchText}}"
+								},
+								{
+									"key": "filter",
+									"value": "{{filter}}",
+									"description": "\"name=value\" (can have more than one filter) (doesn't affect the request if you have searchText parameter)"
+								},
+								{
+									"key": "searchType",
+									"value": "{{searchType}}"
+								},
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}"
+								}
+							]
+						},
+						"description": "Search users in the User DB."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Tenants",
+			"item": [
+				{
+					"name": "Get all tenants",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/tenants/organisations?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"tenants",
+								"organisations"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}"
+								},
+								{
+									"key": "sortBy",
+									"value": "{{sortBy}}"
+								},
+								{
+									"key": "sortOrder",
+									"value": "{{sortOrder}}"
+								}
+							]
+						},
+						"description": "Get all tenants"
+					},
+					"response": []
+				},
+				{
+					"name": "Create tenant",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"\",\r\n  \"admin\": {\r\n    \"email\": \"\",\r\n    \"firstName\": \"\",\r\n    \"lastName\": \"\",\r\n    \"jobTitle\": \"\",\r\n    \"department\": \"\",\r\n    \"mobilePhone\": \"\",\r\n    \"telephone\": \"\",\r\n    \"street\": \"\",\r\n    \"houseNumber\": \"\",\r\n    \"addressSupplement\": \"\",\r\n    \"zipCode\": \"\",\r\n    \"city\": \"\",\r\n    \"country\": \"\"\r\n  },\r\n  \"phoneNumber\": \"\",\r\n  \"street\": \"\",\r\n  \"houseNumber\": \"\",\r\n  \"addressSupplement\": \"\",\r\n  \"zipCode\": \"\",\r\n  \"city\": \"\",\r\n  \"country\": \"\",\r\n  \"notes\": \"\",\r\n  \"childOrganisationsLimit\": 1,\r\n  \"usersLimit\": 1,\r\n  \"devicesLimit\": 1,\r\n  \"keysLimit\": 1,\r\n  \"keysRequestMonthlyLimit\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/tenants/organisations",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"tenants",
+								"organisations"
+							]
+						},
+						"description": "Create tenant"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete tenant",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/tenants/organisations/{{tenantId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"tenants",
+								"organisations",
+								"{{tenantId}}"
+							]
+						},
+						"description": "Delete tenant"
+					},
+					"response": []
+				},
+				{
+					"name": "Get single tenant",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/tenants/organisations/{{tenantId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"tenants",
+								"organisations",
+								"{{tenantId}}"
+							]
+						},
+						"description": "Get single tenant"
+					},
+					"response": []
+				},
+				{
+					"name": "Update tenant",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"\",\r\n  \"childOrganisationsLimit\": 1,\r\n  \"usersLimit\": 1,\r\n  \"devicesLimit\": 1,\r\n  \"keysLimit\": 1,\r\n  \"keysRequestMonthlyLimit\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/tenants/organisations/{{tenantId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"tenants",
+								"organisations",
+								"{{tenantId}}"
+							]
+						},
+						"description": "Update tenant"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/users?organisationId={{organisationId}}&page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"users"
+							],
+							"query": [
+								{
+									"key": "organisationId",
+									"value": "{{organisationId}}"
+								},
+								{
+									"key": "page",
+									"value": "{{page}}",
+									"description": "Page number"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}",
+									"description": "Limit of shown items"
+								},
+								{
+									"key": "sortBy",
+									"value": "{{sortBy}}",
+									"description": "Sort by property"
+								},
+								{
+									"key": "sortOrder",
+									"value": "{{sortOrder}}",
+									"description": "Sort order (asc/desc)"
+								}
+							]
+						},
+						"description": "Get users by organisationId."
+					},
+					"response": []
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"organisationId\": 0,\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"jobTitle\": \"string\",\r\n  \"department\": \"string\",\r\n  \"mobilePhone\": \"string\",\r\n  \"telephone\": \"string\",\r\n  \"street\": \"string\",\r\n  \"houseNumber\": \"string\",\r\n  \"addressSupplement\": \"string\",\r\n  \"zipCode\": \"string\",\r\n  \"city\": \"string\",\r\n  \"country\": \"string\",\r\n  \"status\": {\r\n    \"statusId\": 0,\r\n    \"description\": \"string\"\r\n  },\r\n  \"editable\": true,\r\n  \"deletable\": true,\r\n  \"createdAt\": \"2020-02-26T14:13:18.102Z\",\r\n  \"updatedAt\": \"2020-02-26T14:13:18.102Z\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/users",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"users"
+							]
+						},
+						"description": "Create user."
+					},
+					"response": []
+				},
+				{
+					"name": "Set new password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authheadertoken}}",
+								"description": "Authorization header token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"\",\r\n  \"password\": \"\",\r\n  \"code\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/users/password",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"users",
+								"password"
+							]
+						},
+						"description": "Reset forgotten password using code from email address."
+					},
+					"response": []
+				},
+				{
+					"name": "Reset password",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authheadertoken}}",
+								"description": "Authorization header token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/users/password/reset?email={{email}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"users",
+								"password",
+								"reset"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "{{email}}",
+									"description": "string"
+								}
+							]
+						},
+						"description": "Reset password trough email address."
+					},
+					"response": []
+				},
+				{
+					"name": "Get user profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/users/profile",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"users",
+								"profile"
+							]
+						},
+						"description": "Get user profile."
+					},
+					"response": []
+				},
+				{
+					"name": "Update user profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"organisationId\": 0,\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"jobTitle\": \"string\",\r\n  \"department\": \"string\",\r\n  \"mobilePhone\": \"string\",\r\n  \"telephone\": \"string\",\r\n  \"street\": \"string\",\r\n  \"houseNumber\": \"string\",\r\n  \"addressSupplement\": \"string\",\r\n  \"zipCode\": \"string\",\r\n  \"city\": \"string\",\r\n  \"country\": \"string\",\r\n  \"status\": {\r\n    \"statusId\": 0,\r\n    \"description\": \"string\"\r\n  },\r\n  \"editable\": true,\r\n  \"deletable\": true,\r\n  \"createdAt\": \"2020-02-26T14:13:18.102Z\",\r\n  \"updatedAt\": \"2020-02-26T14:13:18.102Z\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/users/profile",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"users",
+								"profile"
+							]
+						},
+						"description": "Update user profile."
+					},
+					"response": []
+				},
+				{
+					"name": "Register a user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"organisationId\": 1,\r\n  \"password\": \"\",\r\n  \"firstName\": \"\",\r\n  \"lastName\": \"\",\r\n  \"email\": \"\",\r\n  \"jobTitle\": \"\",\r\n  \"department\": \"\",\r\n  \"mobilePhone\": \"\",\r\n  \"telephone\": \"\",\r\n  \"street\": \"\",\r\n  \"houseNumber\": \"\",\r\n  \"addressSupplement\": \"\",\r\n  \"zipCode\": \"\",\r\n  \"city\": \"\",\r\n  \"country\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/users/register",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Suggest users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/users/suggest?organisationId={{organisationId}}&search={{search}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"users",
+								"suggest"
+							],
+							"query": [
+								{
+									"key": "organisationId",
+									"value": "{{organisationId}}",
+									"description": "number"
+								},
+								{
+									"key": "search",
+									"value": "{{search}}",
+									"description": "string"
+								}
+							]
+						},
+						"description": "Get user suggestions given a search keyword (searches in user's full name and email)."
+					},
+					"response": []
+				},
+				{
+					"name": "Verify user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authheadertoken}}",
+								"description": "Authorization header token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/users/verify?email={{email}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"users",
+								"verify"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "{{email}}",
+									"description": "string"
+								}
+							]
+						},
+						"description": "Resend user verification code to email address."
+					},
+					"response": []
+				},
+				{
+					"name": "Verify user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authheadertoken}}",
+								"description": "Authorization header token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"\",\r\n  \"code\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/users/verify",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"users",
+								"verify"
+							]
+						},
+						"description": "Verify user by code send trough email."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/users/{{userId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"users",
+								"{{userId}}"
+							]
+						},
+						"description": "Delete user by userId."
+					},
+					"response": []
+				},
+				{
+					"name": "Get user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/users/{{userId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"users",
+								"{{userId}}"
+							]
+						},
+						"description": "Get user by userId."
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"organisationId\": 0,\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"jobTitle\": \"string\",\r\n  \"department\": \"string\",\r\n  \"mobilePhone\": \"string\",\r\n  \"telephone\": \"string\",\r\n  \"street\": \"string\",\r\n  \"houseNumber\": \"string\",\r\n  \"addressSupplement\": \"string\",\r\n  \"zipCode\": \"string\",\r\n  \"city\": \"string\",\r\n  \"country\": \"string\",\r\n  \"status\": {\r\n    \"statusId\": 0,\r\n    \"description\": \"string\"\r\n  },\r\n  \"editable\": true,\r\n  \"deletable\": true,\r\n  \"createdAt\": \"2020-02-26T14:13:18.102Z\",\r\n  \"updatedAt\": \"2020-02-26T14:13:18.102Z\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/users/{{userId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"users",
+								"{{userId}}"
+							]
+						},
+						"description": "Update user."
+					},
+					"response": []
+				},
+				{
+					"name": "Get user roles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/users/{{userId}}/roles?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"users",
+								"{{userId}}",
+								"roles"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{page}}",
+									"description": "Page number"
+								},
+								{
+									"key": "limit",
+									"value": "{{limit}}",
+									"description": "Limit of shown items"
+								},
+								{
+									"key": "sortBy",
+									"value": "{{sortBy}}",
+									"description": "Sort by property"
+								},
+								{
+									"key": "sortOrder",
+									"value": "{{sortOrder}}",
+									"description": "Sort order (asc/desc)"
+								}
+							]
+						},
+						"description": "Get all roles for given user."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete role from user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/users/{{userId}}/roles/{{roleName}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"users",
+								"{{userId}}",
+								"roles",
+								"{{roleName}}"
+							]
+						},
+						"description": "Delete role from user."
+					},
+					"response": []
+				},
+				{
+					"name": "Add role to user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"description": "Access token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/users/{{userId}}/roles/{{roleName}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"users",
+								"{{userId}}",
+								"roles",
+								"{{roleName}}"
+							]
+						},
+						"description": "Add role to user."
+					},
+					"response": []
+				}
+			],
+			"description": "Users",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Webhooks",
+			"item": [
+				{
+					"name": "Get webhooks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/webhooks?organisationId=",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"webhooks"
+							],
+							"query": [
+								{
+									"key": "organisationId",
+									"value": ""
+								},
+								{
+									"key": "deviceId",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Retrieve webhooks for an organisation"
+					},
+					"response": []
+				},
+				{
+					"name": "Create webhook",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"organisationId\": 1,\r\n  \"url\": \"\",\r\n  \"requestType\": \"\",\r\n  \"actionType\": \"\",\r\n  \"headers\": [\r\n    {\r\n      \"name\": \"\",\r\n      \"value\": \"\"\r\n    }\r\n  ],\r\n  \"queries\": [\r\n    {\r\n      \"name\": \"\",\r\n      \"value\": \"\"\r\n    }\r\n  ],\r\n  \"payload\": {}\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/webhooks",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"webhooks"
+							]
+						},
+						"description": "Create webhook for an organisation"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete webhook",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/webhooks/{{webhookId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"webhooks",
+								"{{webhookId}}"
+							]
+						},
+						"description": "Delete webhook by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Get webhook",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/{{version}}/webhooks/{{webhookId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"webhooks",
+								"{{webhookId}}"
+							]
+						},
+						"description": "Get specific webhook"
+					},
+					"response": []
+				},
+				{
+					"name": "Update webhook",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"url\": \"\",\r\n  \"requestType\": \"\",\r\n  \"actionType\": \"\",\r\n  \"headers\": [\r\n    {\r\n      \"name\": \"\",\r\n      \"value\": \"\"\r\n    }\r\n  ],\r\n  \"queries\": [\r\n    {\r\n      \"name\": \"\",\r\n      \"value\": \"\"\r\n    }\r\n  ],\r\n  \"payload\": {}\r\n}"
+						},
+						"url": {
+							"raw": "http://{{url}}/{{version}}/webhooks/{{webhookId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"webhooks",
+								"{{webhookId}}"
+							]
+						},
+						"description": "Update webhook by id"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "722f836e-0a00-46c3-ae97-a560c34a0ffb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "70d0b4ac-753e-48d5-bdf9-cc4ffaf8689e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
