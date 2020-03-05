@@ -8,8 +8,8 @@ The essential information for minimal usage is the **url** and **accesstoken** v
 
 ## Postman Collection
 
-The Postman collection is identically constructed as the API in [api.netfield.io](https://api.netfield.io/v1/documentation). All folders pertain to the like-named groupings in the SwaggerAPI Documentation.
+The Postman collection is identically constructed as the API's in [api.netfield.io](https://api.netfield.io/v1/documentation). All folders pertain to the like-named groupings in the SwaggerAPI Documentation.
 
 ## Postman Environment
 
-The Postman environment file contains all variable required to run all API's in [api.netfield.io](https://api.netfield.io/v1/documentation).
+The Postman environment file contains all variables required to run all API's in [api.netfield.io](https://api.netfield.io/v1/documentation).
