@@ -340,7 +340,7 @@
 									"type": "text"
 								},
 								{
-									"key": "sharedOrganisationList",
+									"key": "sharedOrganisationIds",
 									"value": "",
 									"description": "array",
 									"type": "text"
@@ -2702,7 +2702,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "organisation-manifests",
+			"name": "deployment-manifests",
 			"item": [
 				{
 					"name": "Get Manifest Containers by Org",
