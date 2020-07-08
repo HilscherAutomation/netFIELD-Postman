@@ -2702,7 +2702,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "organisationManifests",
+			"name": "organisation-manifests",
 			"item": [
 				{
 					"name": "Get Manifest Containers by Org",
@@ -2721,7 +2721,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/containers",
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/containers",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2730,7 +2730,7 @@
 								"{{version}}",
 								"organisations",
 								"{{organisationId}}",
-								"deploymentManifest",
+								"deployment-manifests",
 								"containers"
 							]
 						}
@@ -2749,7 +2749,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/containers/{{containerId}}",
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/containers/{{containerId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2758,7 +2758,7 @@
 								"{{version}}",
 								"organisations",
 								"{{organisationId}}",
-								"deploymentManifest",
+								"deployment-manifests",
 								"containers",
 								"{{containerId}}"
 							]
@@ -2783,7 +2783,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/containers/{{containerId}}",
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/containers/{{containerId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2792,7 +2792,7 @@
 								"{{version}}",
 								"organisations",
 								"{{organisationId}}",
-								"deploymentManifest",
+								"deployment-manifests",
 								"containers",
 								"{{containerId}}"
 							]
@@ -2827,7 +2827,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/containers/{{containerId}}",
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/containers/{{containerId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2836,7 +2836,7 @@
 								"{{version}}",
 								"organisations",
 								"{{organisationId}}",
-								"deploymentManifest",
+								"deployment-manifests",
 								"containers",
 								"{{containerId}}"
 							]
@@ -2871,7 +2871,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/containers/{{containerId}}",
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/containers/{{containerId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2880,7 +2880,7 @@
 								"{{version}}",
 								"organisations",
 								"{{organisationId}}",
-								"deploymentManifest",
+								"deployment-manifests",
 								"containers",
 								"{{containerId}}"
 							]
@@ -2905,7 +2905,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/routes",
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/routes",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2914,7 +2914,7 @@
 								"{{version}}",
 								"organisations",
 								"{{organisationId}}",
-								"deploymentManifest",
+								"deployment-manifests",
 								"routes"
 							]
 						}
@@ -2942,7 +2942,7 @@
 							"raw": "{\r\n  \"name\": \"\",\r\n  \"source\": \"\",\r\n  \"condition\": \"\",\r\n  \"target\": \"\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/routes",
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/routes",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2951,7 +2951,7 @@
 								"{{version}}",
 								"organisations",
 								"{{organisationId}}",
-								"deploymentManifest",
+								"deployment-manifests",
 								"routes"
 							]
 						}
@@ -2970,7 +2970,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/routes/{{routeId}}",
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/routes/{{routeId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2979,7 +2979,7 @@
 								"{{version}}",
 								"organisations",
 								"{{organisationId}}",
-								"deploymentManifest",
+								"deployment-manifests",
 								"routes",
 								"{{routeId}}"
 							]
@@ -3004,7 +3004,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/routes/{{routeId}}",
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/routes/{{routeId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3013,7 +3013,7 @@
 								"{{version}}",
 								"organisations",
 								"{{organisationId}}",
-								"deploymentManifest",
+								"deployment-manifests",
 								"routes",
 								"{{routeId}}"
 							]
@@ -3042,7 +3042,7 @@
 							"raw": "{\n    \"name\": \"\",\n    \"source\": \"\",\n    \"target\": \"\",\n    \"condition\": \"\"\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deploymentManifest/routes/{{routeId}}",
+							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/routes/{{routeId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3051,7 +3051,7 @@
 								"{{version}}",
 								"organisations",
 								"{{organisationId}}",
-								"deploymentManifest",
+								"deployment-manifests",
 								"routes",
 								"{{routeId}}"
 							]
