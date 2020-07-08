@@ -17,3 +17,5 @@ The Postman environment file contains all variables required to run all API's in
 ## GetPostman Documenter
 
 Have a look at the API's in Postman Documenter [documenter.getpostman.com](https://documenter.getpostman.com/view/10589411/T17DhpNS?version=latest)
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2d4873efaac4a5caab33)
