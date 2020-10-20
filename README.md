@@ -1,4 +1,4 @@
-# netFIELD postman
+# netFIELD Postman
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -13,9 +13,3 @@ The Postman collection is identically constructed as the API's in [api.netfield.
 ## Postman Environment
 
 The Postman environment file contains all variables required to run all API's in [api.netfield.io](https://api.netfield.io/v1/documentation).
-
-## GetPostman Documenter
-
-Have a look at the API's in Postman Documenter [documenter.getpostman.com](https://documenter.getpostman.com/view/10589411/TVYAh1zP)
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2d4873efaac4a5caab33)
