@@ -31,7 +31,7 @@
 							"raw": "{\r\n  \"grantType\": \"password\",\r\n  \"refreshToken\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"stayLoggedIn\": false\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/auth",
+							"raw": "https://{{url}}/{{version}}/auth",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -68,7 +68,7 @@
 							"raw": "{\r\n  \"grantType\": \"refreshToken\",\r\n  \"refreshToken\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"stayLoggedIn\": false\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/auth",
+							"raw": "https://{{url}}/{{version}}/auth",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -105,7 +105,7 @@
 							"raw": "{}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/auth/revoke",
+							"raw": "https://{{url}}/{{version}}/auth/revoke",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -146,7 +146,7 @@
 							"raw": "{}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/auth/verify",
+							"raw": "https://{{url}}/{{version}}/auth/verify",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -184,7 +184,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/containers?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"raw": "https://{{url}}/{{version}}/containers?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -360,7 +360,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/containers",
+							"raw": "https://{{url}}/{{version}}/containers",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -390,7 +390,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/containers/{{containerId}}",
+							"raw": "https://{{url}}/{{version}}/containers/{{containerId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -417,7 +417,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/containers/{{containerId}}",
+							"raw": "https://{{url}}/{{version}}/containers/{{containerId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -557,7 +557,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/containers/{{containerId}}",
+							"raw": "https://{{url}}/{{version}}/containers/{{containerId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -593,7 +593,7 @@
 							"raw": "{\r\n  \"organisationIds\": []\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/containers/{{containerId}}/share",
+							"raw": "https://{{url}}/{{version}}/containers/{{containerId}}/share",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -621,7 +621,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/containers/{{containerId}}/share/{{organisationId}}",
+							"raw": "https://{{url}}/{{version}}/containers/{{containerId}}/share/{{organisationId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -683,7 +683,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/containers?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -734,7 +734,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/deployable?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/containers/deployable?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -785,7 +785,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/installed?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/containers/installed?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -836,7 +836,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/routes",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/containers/routes",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -874,7 +874,7 @@
 							"raw": "{\r\n  \"name\": \"\",\r\n  \"source\": \"\",\r\n  \"condition\": \"\",\r\n  \"target\": \"\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/routes",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/containers/routes",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -913,7 +913,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/routes/{{routeId}}",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/containers/routes/{{routeId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -952,7 +952,7 @@
 							"raw": "{\r\n  \"id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"source\": \"string\",\r\n  \"condition\": \"string\",\r\n  \"target\": \"string\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/routes/{{routeId}}",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/routes/{{routeId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -986,7 +986,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/modules/{{containerId}}",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/modules/{{containerId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1020,7 +1020,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/{{containerId}}",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/containers/{{containerId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1058,7 +1058,7 @@
 							"raw": "{\r\n  \"restartPolicy\": \"\",\r\n  \"desiredStatus\": \"\",\r\n  \"moduleTwinDesiredOptions\": {},\r\n  \"environmentVariables\": [\r\n    {\r\n      \"key\": \"\",\r\n      \"value\": \"\"\r\n    }\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/{{containerId}}",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/containers/{{containerId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1187,7 +1187,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/{{containerId}}",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/containers/{{containerId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1221,7 +1221,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/containers/{{containerId}}/properties",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/containers/{{containerId}}/properties",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1264,7 +1264,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/custom-fields",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/custom-fields",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1303,7 +1303,7 @@
 							"raw": "{\r\n  \"fieldId\": \"\",\r\n  \"fieldValue\": \"\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/custom-fields",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/custom-fields",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1342,7 +1342,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/custom-fields/{{fieldId}}",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/custom-fields/{{fieldId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1378,7 +1378,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/custom-fields/{{fieldId}}",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/custom-fields/{{fieldId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1418,7 +1418,7 @@
 							"raw": "{\r\n  \"fieldValue\": \"\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/custom-fields/{{fieldId}}",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/custom-fields/{{fieldId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1463,7 +1463,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/notification",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/notification",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1496,7 +1496,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/notifications",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/notifications",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1535,7 +1535,7 @@
 							"raw": "{\r\n  \"serialNumber\": \"\",\r\n  \"level\": \"\",\r\n  \"message\": \"\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/notifications",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/notifications",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1573,7 +1573,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/notification/{{notificationId}}",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/notification/{{notificationId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1615,7 +1615,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices?organisationId={{organisationId}}&page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"raw": "https://{{url}}/{{version}}/devices?organisationId={{organisationId}}&page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1678,7 +1678,7 @@
 							"raw": "{\n    \"id\": \"string\",\n    \"organisationId\": 0,\n    \"serialNumber\": \"string\",\n    \"activationCode\": \"string\",\n    \"onBoarded\": true,\n    \"name\": \"string\",\n    \"firmwareVersion\": \"string\",\n    \"modelName\": \"string\",\n    \"status\": {\n        \"color\": \"string\",\n        \"description\": \"string\"\n    },\n    \"geolocation\": {\n        \"longitude\": \"string\",\n        \"latitude\": \"string\"\n    },\n    \"description\": \"string\",\n    \"tags\": \"string\",\n    \"properties\": [\n        {\n            \"name\": \"string\",\n            \"value\": \"string\"\n        }\n    ],\n    \"createdAt\": \"2020-02-26T14:13:17.185Z\",\n    \"updatedAt\": \"2020-02-26T14:13:17.185Z\"\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices",
+							"raw": "https://{{url}}/{{version}}/devices",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1715,7 +1715,7 @@
 							"raw": "{\r\n  \"serialNumber\": \"\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/offboard",
+							"raw": "https://{{url}}/{{version}}/devices/offboard",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1753,7 +1753,7 @@
 							"raw": "{\r\n  \"activationCode\": \"\",\r\n  \"serialNumber\": \"\",\r\n  \"firmwareVersion\": \"\",\r\n  \"modelName\": \"\",\r\n  \"moduleJWT\": \"\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/onboard/sas",
+							"raw": "https://{{url}}/{{version}}/devices/onboard/sas",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1788,7 +1788,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/status?deviceIds=",
+							"raw": "https://{{url}}/{{version}}/devices/status?deviceIds=",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1833,7 +1833,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1867,7 +1867,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1905,7 +1905,7 @@
 							"raw": "{\r\n  \"id\": \"string\",\r\n  \"organisationId\": 0,\r\n  \"serialNumber\": \"string\",\r\n  \"activationCode\": \"string\",\r\n  \"onBoarded\": true,\r\n  \"name\": \"string\",\r\n  \"firmwareVersion\": \"string\",\r\n  \"modelName\": \"string\",\r\n  \"status\": {\r\n    \"color\": \"string\",\r\n    \"description\": \"string\"\r\n  },\r\n  \"geolocation\": {\r\n    \"longitude\": \"string\",\r\n    \"latitude\": \"string\"\r\n  },\r\n  \"description\": \"string\",\r\n  \"tags\": \"string\",\r\n  \"properties\": [\r\n    {\r\n      \"name\": \"string\",\r\n      \"value\": \"string\"\r\n    }\r\n  ],\r\n  \"createdAt\": \"2020-02-26T14:13:17.185Z\",\r\n  \"updatedAt\": \"2020-02-26T14:13:17.185Z\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1943,7 +1943,7 @@
 							"raw": "{\r\n  \"moduleName\": \"\",\r\n  \"methodName\": \"\",\r\n  \"methodPayload\": {}\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/methods",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/methods",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -1977,7 +1977,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/edgeos/{{edgeosId}}",
+							"raw": "https://{{url}}/{{version}}/edgeos/{{edgeosId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2044,7 +2044,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/edgeos",
+							"raw": "https://{{url}}/{{version}}/edgeos",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2080,7 +2080,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/edgeos/{{edgeosId}}",
+							"raw": "https://{{url}}/{{version}}/edgeos/{{edgeosId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2107,7 +2107,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/edgeos?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}&platform={{platform}}",
+							"raw": "https://{{url}}/{{version}}/edgeos?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}&platform={{platform}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2195,7 +2195,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/edgeos/{{edgeosId}}",
+							"raw": "https://{{url}}/{{version}}/edgeos/{{edgeosId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2228,7 +2228,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/groups/{{groupId}}",
+							"raw": "https://{{url}}/{{version}}/groups/{{groupId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2259,7 +2259,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/groups/{{groupId}}?depth={{depth}}",
+							"raw": "https://{{url}}/{{version}}/groups/{{groupId}}?depth={{depth}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2300,7 +2300,7 @@
 							"raw": "{\r\n  \"name\": \"\",\r\n  \"groupType\": \"\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/groups/{{groupId}}",
+							"raw": "https://{{url}}/{{version}}/groups/{{groupId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2335,7 +2335,7 @@
 							"raw": "{\r\n  \"name\": \"\",\r\n  \"groupType\": \"\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/groups/{{groupId}}",
+							"raw": "https://{{url}}/{{version}}/groups/{{groupId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2361,7 +2361,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/groups/{{groupId}}/devices/{{deviceId}}?",
+							"raw": "https://{{url}}/{{version}}/groups/{{groupId}}/devices/{{deviceId}}?",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2406,7 +2406,7 @@
 							"file": {}
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/groups/{{groupId}}/devices/{{deviceId}}",
+							"raw": "https://{{url}}/{{version}}/groups/{{groupId}}/devices/{{deviceId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2441,7 +2441,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/keys?organisationId={{organisationId}}&page={{page}}&limit={{limit}}&sortBy={{sortBy}}",
+							"raw": "https://{{url}}/{{version}}/keys?organisationId={{organisationId}}&page={{page}}&limit={{limit}}&sortBy={{sortBy}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2499,7 +2499,7 @@
 							"raw": "{\r\n  \"organisationId\": 1,\r\n  \"name\": \"\",\r\n  \"type\": \"\",\r\n  \"resources\": [\r\n    {\r\n      \"resource\": \"\",\r\n      \"permissions\": [\r\n        \"\"\r\n      ]\r\n    }\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/keys",
+							"raw": "https://{{url}}/{{version}}/keys",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2525,7 +2525,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/keys/permissions?organisationId={{organisationId}}&page={{page}}&limit={{limit}}&sortBy={{sortBy}}",
+							"raw": "https://{{url}}/{{version}}/keys/permissions?organisationId={{organisationId}}&page={{page}}&limit={{limit}}&sortBy={{sortBy}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2578,7 +2578,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/keys/{{keyId}}",
+							"raw": "https://{{url}}/{{version}}/keys/{{keyId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2605,7 +2605,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/keys/{{keyId}}",
+							"raw": "https://{{url}}/{{version}}/keys/{{keyId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2641,7 +2641,7 @@
 							"raw": "{\r\n  \"name\": \"\",\r\n  \"type\": \"\",\r\n  \"scope\": [\r\n    {\r\n      \"resource\": \"\",\r\n      \"permissions\": [\r\n        \"\"\r\n      ]\r\n    }\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/keys/{{keyId}}",
+							"raw": "https://{{url}}/{{version}}/keys/{{keyId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2684,7 +2684,7 @@
 							"raw": "[\r\n  {\r\n    \"id\": \"string\",\r\n    \"topic\": \"string\",\r\n    \"subject\": \"string\",\r\n    \"data\": {},\r\n    \"eventType\": \"string\",\r\n    \"eventTime\": \"string\",\r\n    \"metadataVersion\": \"string\",\r\n    \"dataVersion\": \"string\"\r\n  }\r\n]"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/notifications",
+							"raw": "https://{{url}}/{{version}}/notifications",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2721,7 +2721,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/containers",
+							"raw": "https://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/containers",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2749,7 +2749,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/containers/{{containerId}}",
+							"raw": "https://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/containers/{{containerId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2783,7 +2783,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/containers/{{containerId}}",
+							"raw": "https://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/containers/{{containerId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2827,7 +2827,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/containers/{{containerId}}",
+							"raw": "https://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/containers/{{containerId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2871,7 +2871,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/containers/{{containerId}}",
+							"raw": "https://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/containers/{{containerId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2905,7 +2905,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/routes",
+							"raw": "https://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/routes",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2942,7 +2942,7 @@
 							"raw": "{\r\n  \"name\": \"\",\r\n  \"source\": \"\",\r\n  \"condition\": \"\",\r\n  \"target\": \"\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/routes",
+							"raw": "https://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/routes",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -2970,7 +2970,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/routes/{{routeId}}",
+							"raw": "https://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/routes/{{routeId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3004,7 +3004,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/routes/{{routeId}}",
+							"raw": "https://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/routes/{{routeId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3042,7 +3042,7 @@
 							"raw": "{\n    \"name\": \"\",\n    \"source\": \"\",\n    \"target\": \"\",\n    \"condition\": \"\"\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/routes/{{routeId}}",
+							"raw": "https://{{url}}/{{version}}/organisations/{{organisationId}}/deployment-manifests/routes/{{routeId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3090,7 +3090,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations",
+							"raw": "https://{{url}}/{{version}}/organisations",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3127,7 +3127,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}",
+							"raw": "https://{{url}}/{{version}}/organisations/{{organisationId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3166,7 +3166,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}",
+							"raw": "https://{{url}}/{{version}}/organisations/{{organisationId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3204,7 +3204,7 @@
 							"raw": "{\r\n  \"id\": 0,\r\n  \"parentId\": 0,\r\n  \"name\": \"string\",\r\n  \"admin\": {\r\n    \"id\": 0,\r\n    \"fullName\": \"string\",\r\n    \"email\": \"string\"\r\n  },\r\n  \"phoneNumber\": \"string\",\r\n  \"street\": \"string\",\r\n  \"houseNumber\": \"string\",\r\n  \"addressSupplement\": \"string\",\r\n  \"zipCode\": \"string\",\r\n  \"city\": \"string\",\r\n  \"country\": \"string\",\r\n  \"notes\": \"string\",\r\n  \"childrenInheritManifest\": true,\r\n  \"defaultDeviceGroupId\": 0,\r\n  \"createdAt\": \"2020-02-26T14:13:18.133Z\",\r\n  \"updatedAt\": \"2020-02-26T14:13:18.133Z\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}",
+							"raw": "https://{{url}}/{{version}}/organisations/{{organisationId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3242,7 +3242,7 @@
 							"raw": "{\r\n  \"id\": 0,\r\n  \"parentId\": 0,\r\n  \"name\": \"string\",\r\n  \"admin\": {\r\n    \"id\": 0,\r\n    \"fullName\": \"string\",\r\n    \"email\": \"string\"\r\n  },\r\n  \"phoneNumber\": \"string\",\r\n  \"street\": \"string\",\r\n  \"houseNumber\": \"string\",\r\n  \"addressSupplement\": \"string\",\r\n  \"zipCode\": \"string\",\r\n  \"city\": \"string\",\r\n  \"country\": \"string\",\r\n  \"notes\": \"string\",\r\n  \"childrenInheritManifest\": true,\r\n  \"defaultDeviceGroupId\": 0,\r\n  \"createdAt\": \"2020-02-26T14:13:18.133Z\",\r\n  \"updatedAt\": \"2020-02-26T14:13:18.133Z\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/organisations/{{organisationId}}",
+							"raw": "https://{{url}}/{{version}}/organisations/{{organisationId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3288,7 +3288,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/permissions?resource={{permissionResource}}",
+							"raw": "https://{{url}}/{{version}}/permissions?resource={{permissionResource}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3331,7 +3331,7 @@
 							"raw": "{\r\n  \"containerPermissions\": [\r\n    {\r\n      \"containerId\": \"string\",\r\n      \"permissions\": [\r\n        \"containers.createContainers\"\r\n      ]\r\n    }\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/permissions/containers",
+							"raw": "https://{{url}}/{{version}}/permissions/containers",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3368,7 +3368,7 @@
 							"raw": "{\r\n  \"devicePermissions\": [\r\n    {\r\n      \"deviceId\": \"string\",\r\n      \"permissions\": [\r\n        \"devices.createDevices\"\r\n      ]\r\n    }\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/permissions/devices",
+							"raw": "https://{{url}}/{{version}}/permissions/devices",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3404,7 +3404,7 @@
 							"raw": "{\r\n  \"edgeosPermissions\": [\r\n    {\r\n      \"edgeosId\": \"string\",\r\n      \"permissions\": [\r\n        \"edgeos.createEdgeos\"\r\n      ]\r\n    }\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/permissions/edgeos",
+							"raw": "https://{{url}}/{{version}}/permissions/edgeos",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3439,7 +3439,7 @@
 							"raw": "{\r\n  \"groupPermissions\": [\r\n    {\r\n      \"groupId\": 0,\r\n      \"permissions\": [\r\n        \"groups.createGroup\"\r\n      ]\r\n    }\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/permissions/firmware",
+							"raw": "https://{{url}}/{{version}}/permissions/firmware",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3475,7 +3475,7 @@
 							"raw": "{\r\n  \"keyPermissions\": [\r\n    {\r\n      \"keyId\": \"string\",\r\n      \"permissions\": [\r\n        \"keys.createKey\"\r\n      ]\r\n    }\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/permissions/keys",
+							"raw": "https://{{url}}/{{version}}/permissions/keys",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3512,7 +3512,7 @@
 							"raw": "{\r\n  \"organisationPermissions\": [\r\n    {\r\n      \"organisationId\": 0,\r\n      \"permissions\": [\r\n        \"usersAndOrganisations.createOrganisations\"\r\n      ]\r\n    }\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/permissions/organisations",
+							"raw": "https://{{url}}/{{version}}/permissions/organisations",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3549,7 +3549,7 @@
 							"raw": "{\r\n  \"rolePermissions\": [\r\n    {\r\n      \"organisationId\": 0,\r\n      \"roleName\": \"string\",\r\n      \"permissions\": [\r\n        \"roles.createRoles\"\r\n      ]\r\n    }\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/permissions/roles",
+							"raw": "https://{{url}}/{{version}}/permissions/roles",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3585,7 +3585,7 @@
 							"raw": "{\r\n  \"tenantPermissions\": [\r\n    {\r\n      \"tenantId\": 0,\r\n      \"permissions\": [\r\n        \"string\"\r\n      ]\r\n    }\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/permissions/tenants",
+							"raw": "https://{{url}}/{{version}}/permissions/tenants",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3622,7 +3622,7 @@
 							"raw": "{\r\n  \"userPermissions\": [\r\n    {\r\n      \"userId\": 0,\r\n      \"permissions\": [\r\n        \"usersAndOrganisations.createUsers\"\r\n      ]\r\n    }\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/permissions/users",
+							"raw": "https://{{url}}/{{version}}/permissions/users",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3657,7 +3657,7 @@
 							"raw": "{\r\n  \"webhookPermissions\": [\r\n    {\r\n      \"webhookId\": \"string\",\r\n      \"permissions\": [\r\n        \"string\"\r\n      ]\r\n    }\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/permissions/webhooks",
+							"raw": "https://{{url}}/{{version}}/permissions/webhooks",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3697,7 +3697,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/remote",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/remote",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3735,7 +3735,7 @@
 							"raw": "{\r\n  \"name\": \"\",\r\n  \"geolocation\": \"\",\r\n  \"description\": \"\",\r\n  \"tags\": \"\",\r\n  \"properties\": [\r\n    {\r\n      \"name\": \"\",\r\n      \"value\": \"\"\r\n    }\r\n  ],\r\n  \"status\": \"enabled\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/remote",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/remote",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3769,7 +3769,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/devices/{{deviceId}}/remote/credentials",
+							"raw": "https://{{url}}/{{version}}/devices/{{deviceId}}/remote/credentials",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3810,7 +3810,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/roles?organisationId={{organisationId}}&page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"raw": "https://{{url}}/{{version}}/roles?organisationId={{organisationId}}&page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3874,7 +3874,7 @@
 							"raw": "{\r\n  \"role\": \"string\",\r\n  \"editable\": true,\r\n  \"deletable\": true,\r\n  \"organisationId\": 0,\r\n  \"resources\": [\r\n    {\r\n      \"resource\": \"roles\",\r\n      \"permissions\": [\r\n        \"permission.securityLevel\"\r\n      ]\r\n    }\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/roles?organisationId={{organisationId}}",
+							"raw": "https://{{url}}/{{version}}/roles?organisationId={{organisationId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3917,7 +3917,7 @@
 							"raw": "{\r\n  \"role\": \"string\",\r\n  \"editable\": true,\r\n  \"deletable\": true,\r\n  \"organisationId\": 0,\r\n  \"resources\": [\r\n    {\r\n      \"resource\": \"roles\",\r\n      \"permissions\": [\r\n        \"permission.securityLevel\"\r\n      ]\r\n    }\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/roles?organisationId={{organisationId}}&role=",
+							"raw": "https://{{url}}/{{version}}/roles?organisationId={{organisationId}}&role=",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -3965,7 +3965,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/roles/{{roleName}}?organisationId={{organisationId}}",
+							"raw": "https://{{url}}/{{version}}/roles/{{roleName}}?organisationId={{organisationId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4005,7 +4005,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/roles/{{roleName}}?organisationId={{organisationId}}",
+							"raw": "https://{{url}}/{{version}}/roles/{{roleName}}?organisationId={{organisationId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4051,7 +4051,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/search/containers?searchText=Hilscher&filter={{filter}}&searchType={{searchType}}&page={{page}}&limit={{limit}}",
+							"raw": "https://{{url}}/{{version}}/search/containers?searchText=Hilscher&filter={{filter}}&searchType={{searchType}}&page={{page}}&limit={{limit}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4106,7 +4106,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/search/devices?searchText={{searchText}}&filter={{filter}}&searchType={{searchType}}&page={{page}}&limit={{limit}}",
+							"raw": "https://{{url}}/{{version}}/search/devices?searchText={{searchText}}&filter={{filter}}&searchType={{searchType}}&page={{page}}&limit={{limit}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4161,7 +4161,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/search/organisations?searchText={{searchText}}&filter={{filter}}&searchType={{searchType}}&page={{page}}&limit={{limit}}",
+							"raw": "https://{{url}}/{{version}}/search/organisations?searchText={{searchText}}&filter={{filter}}&searchType={{searchType}}&page={{page}}&limit={{limit}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4216,7 +4216,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/search/users?searchText={{searchText}}&filter={{filter}}&searchType={{searchType}}&page={{page}}&limit={{limit}}",
+							"raw": "https://{{url}}/{{version}}/search/users?searchText={{searchText}}&filter={{filter}}&searchType={{searchType}}&page={{page}}&limit={{limit}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4278,7 +4278,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/tenants/organisations?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"raw": "https://{{url}}/{{version}}/tenants/organisations?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4333,7 +4333,7 @@
 							"raw": "{\r\n  \"name\": \"\",\r\n  \"admin\": {\r\n    \"email\": \"\",\r\n    \"firstName\": \"\",\r\n    \"lastName\": \"\",\r\n    \"jobTitle\": \"\",\r\n    \"department\": \"\",\r\n    \"mobilePhone\": \"\",\r\n    \"telephone\": \"\",\r\n    \"street\": \"\",\r\n    \"houseNumber\": \"\",\r\n    \"addressSupplement\": \"\",\r\n    \"zipCode\": \"\",\r\n    \"city\": \"\",\r\n    \"country\": \"\"\r\n  },\r\n  \"phoneNumber\": \"\",\r\n  \"street\": \"\",\r\n  \"houseNumber\": \"\",\r\n  \"addressSupplement\": \"\",\r\n  \"zipCode\": \"\",\r\n  \"city\": \"\",\r\n  \"country\": \"\",\r\n  \"notes\": \"\",\r\n  \"childOrganisationsLimit\": 1,\r\n  \"usersLimit\": 1,\r\n  \"devicesLimit\": 1,\r\n  \"keysLimit\": 1,\r\n  \"keysRequestMonthlyLimit\": 1\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/tenants/organisations",
+							"raw": "https://{{url}}/{{version}}/tenants/organisations",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4370,7 +4370,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/tenants/organisations/{{tenantId}}",
+							"raw": "https://{{url}}/{{version}}/tenants/organisations/{{tenantId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4404,7 +4404,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/tenants/organisations/{{tenantId}}",
+							"raw": "https://{{url}}/{{version}}/tenants/organisations/{{tenantId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4442,7 +4442,7 @@
 							"raw": "{\r\n  \"status\": \"\",\r\n  \"childOrganisationsLimit\": 1,\r\n  \"usersLimit\": 1,\r\n  \"devicesLimit\": 1,\r\n  \"keysLimit\": 1,\r\n  \"keysRequestMonthlyLimit\": 1\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/tenants/organisations/{{tenantId}}",
+							"raw": "https://{{url}}/{{version}}/tenants/organisations/{{tenantId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4483,7 +4483,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/users?organisationId={{organisationId}}&page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"raw": "https://{{url}}/{{version}}/users?organisationId={{organisationId}}&page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4546,7 +4546,7 @@
 							"raw": "{\r\n  \"id\": 0,\r\n  \"organisationId\": 0,\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"jobTitle\": \"string\",\r\n  \"department\": \"string\",\r\n  \"mobilePhone\": \"string\",\r\n  \"telephone\": \"string\",\r\n  \"street\": \"string\",\r\n  \"houseNumber\": \"string\",\r\n  \"addressSupplement\": \"string\",\r\n  \"zipCode\": \"string\",\r\n  \"city\": \"string\",\r\n  \"country\": \"string\",\r\n  \"status\": {\r\n    \"statusId\": 0,\r\n    \"description\": \"string\"\r\n  },\r\n  \"editable\": true,\r\n  \"deletable\": true,\r\n  \"createdAt\": \"2020-02-26T14:13:18.102Z\",\r\n  \"updatedAt\": \"2020-02-26T14:13:18.102Z\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/users",
+							"raw": "https://{{url}}/{{version}}/users",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4583,7 +4583,7 @@
 							"raw": "{\r\n  \"email\": \"\",\r\n  \"password\": \"\",\r\n  \"code\": \"\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/users/password",
+							"raw": "https://{{url}}/{{version}}/users/password",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4617,7 +4617,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/users/password/reset?email={{email}}",
+							"raw": "https://{{url}}/{{version}}/users/password/reset?email={{email}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4659,7 +4659,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/users/profile",
+							"raw": "https://{{url}}/{{version}}/users/profile",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4697,7 +4697,7 @@
 							"raw": "{\r\n  \"id\": 0,\r\n  \"organisationId\": 0,\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"jobTitle\": \"string\",\r\n  \"department\": \"string\",\r\n  \"mobilePhone\": \"string\",\r\n  \"telephone\": \"string\",\r\n  \"street\": \"string\",\r\n  \"houseNumber\": \"string\",\r\n  \"addressSupplement\": \"string\",\r\n  \"zipCode\": \"string\",\r\n  \"city\": \"string\",\r\n  \"country\": \"string\",\r\n  \"status\": {\r\n    \"statusId\": 0,\r\n    \"description\": \"string\"\r\n  },\r\n  \"editable\": true,\r\n  \"deletable\": true,\r\n  \"createdAt\": \"2020-02-26T14:13:18.102Z\",\r\n  \"updatedAt\": \"2020-02-26T14:13:18.102Z\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/users/profile",
+							"raw": "https://{{url}}/{{version}}/users/profile",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4733,7 +4733,7 @@
 							"raw": "{\r\n  \"organisationId\": 1,\r\n  \"password\": \"\",\r\n  \"firstName\": \"\",\r\n  \"lastName\": \"\",\r\n  \"email\": \"\",\r\n  \"jobTitle\": \"\",\r\n  \"department\": \"\",\r\n  \"mobilePhone\": \"\",\r\n  \"telephone\": \"\",\r\n  \"street\": \"\",\r\n  \"houseNumber\": \"\",\r\n  \"addressSupplement\": \"\",\r\n  \"zipCode\": \"\",\r\n  \"city\": \"\",\r\n  \"country\": \"\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/users/register",
+							"raw": "https://{{url}}/{{version}}/users/register",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4766,7 +4766,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/users/suggest?organisationId={{organisationId}}&search={{search}}",
+							"raw": "https://{{url}}/{{version}}/users/suggest?organisationId={{organisationId}}&search={{search}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4812,7 +4812,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/users/verify?email={{email}}",
+							"raw": "https://{{url}}/{{version}}/users/verify?email={{email}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4857,7 +4857,7 @@
 							"raw": "{\r\n  \"email\": \"\",\r\n  \"code\": \"\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/users/verify",
+							"raw": "https://{{url}}/{{version}}/users/verify",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4895,7 +4895,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/users/{{userId}}",
+							"raw": "https://{{url}}/{{version}}/users/{{userId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4936,7 +4936,7 @@
 							"raw": "{}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/users/{{userId}}",
+							"raw": "https://{{url}}/{{version}}/users/{{userId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -4974,7 +4974,7 @@
 							"raw": "{\r\n  \"id\": 0,\r\n  \"organisationId\": 0,\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"jobTitle\": \"string\",\r\n  \"department\": \"string\",\r\n  \"mobilePhone\": \"string\",\r\n  \"telephone\": \"string\",\r\n  \"street\": \"string\",\r\n  \"houseNumber\": \"string\",\r\n  \"addressSupplement\": \"string\",\r\n  \"zipCode\": \"string\",\r\n  \"city\": \"string\",\r\n  \"country\": \"string\",\r\n  \"status\": {\r\n    \"statusId\": 0,\r\n    \"description\": \"string\"\r\n  },\r\n  \"editable\": true,\r\n  \"deletable\": true,\r\n  \"createdAt\": \"2020-02-26T14:13:18.102Z\",\r\n  \"updatedAt\": \"2020-02-26T14:13:18.102Z\"\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/users/{{userId}}",
+							"raw": "https://{{url}}/{{version}}/users/{{userId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -5008,7 +5008,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/users/{{userId}}/roles?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+							"raw": "https://{{url}}/{{version}}/users/{{userId}}/roles?page={{page}}&limit={{limit}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -5069,7 +5069,7 @@
 							"raw": "{}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/users/{{userId}}/roles/{{roleName}}",
+							"raw": "https://{{url}}/{{version}}/users/{{userId}}/roles/{{roleName}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -5109,7 +5109,7 @@
 							"raw": "{}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/users/{{userId}}/roles/{{roleName}}",
+							"raw": "https://{{url}}/{{version}}/users/{{userId}}/roles/{{roleName}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -5150,7 +5150,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/webhooks?organisationId=",
+							"raw": "https://{{url}}/{{version}}/webhooks?organisationId=",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -5196,7 +5196,7 @@
 							"raw": "{\r\n  \"organisationId\": 1,\r\n  \"url\": \"\",\r\n  \"requestType\": \"\",\r\n  \"actionType\": \"\",\r\n  \"headers\": [\r\n    {\r\n      \"name\": \"\",\r\n      \"value\": \"\"\r\n    }\r\n  ],\r\n  \"queries\": [\r\n    {\r\n      \"name\": \"\",\r\n      \"value\": \"\"\r\n    }\r\n  ],\r\n  \"payload\": {}\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/webhooks",
+							"raw": "https://{{url}}/{{version}}/webhooks",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -5227,7 +5227,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/webhooks/{{webhookId}}",
+							"raw": "https://{{url}}/{{version}}/webhooks/{{webhookId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -5259,7 +5259,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{url}}/{{version}}/webhooks/{{webhookId}}",
+							"raw": "https://{{url}}/{{version}}/webhooks/{{webhookId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
@@ -5295,7 +5295,7 @@
 							"raw": "{\r\n  \"url\": \"\",\r\n  \"requestType\": \"\",\r\n  \"actionType\": \"\",\r\n  \"headers\": [\r\n    {\r\n      \"name\": \"\",\r\n      \"value\": \"\"\r\n    }\r\n  ],\r\n  \"queries\": [\r\n    {\r\n      \"name\": \"\",\r\n      \"value\": \"\"\r\n    }\r\n  ],\r\n  \"payload\": {}\r\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/{{version}}/webhooks/{{webhookId}}",
+							"raw": "https://{{url}}/{{version}}/webhooks/{{webhookId}}",
 							"protocol": "http",
 							"host": [
 								"{{url}}"
